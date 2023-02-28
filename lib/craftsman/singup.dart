@@ -51,7 +51,7 @@ class SignupPage extends StatelessWidget {
                           makeInput(label: "First Name"),
                           makeInput(label: "First Name"),
                           makeInput(label: "First Name"),
-                           makeInput(label: "First Name"),
+                          makeInput(label: "First Name"),
                           makeInput(label: "Laste Name"),
                           makeInput(label: "Email"),
                           makeInput(label: "Password",obsureText: true),

@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +16,7 @@ class LoginPage extends StatelessWidget {
           leading:
           IconButton( onPressed: (){
             Navigator.pop(context);
-          },icon:Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
+          },icon:const Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
         ),
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -52,7 +54,7 @@ class LoginPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Container(
-                    padding: EdgeInsets.only(top: 3,left: 3),
+                    padding: const EdgeInsets.only(top: 3,left: 3),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(40),
                         border: const Border(
@@ -106,7 +108,7 @@ Widget makeInput({label,obsureText = false}){
         fontWeight: FontWeight.w400,
         color: Colors.black87
       ),),
-      SizedBox(height: 5,),
+      const SizedBox(height: 5,),
       TextField(
         obscureText: obsureText,
         decoration: const InputDecoration(
@@ -121,7 +123,7 @@ Widget makeInput({label,obsureText = false}){
           ),
         ),
       ),
-      SizedBox(height: 30,)
+      const SizedBox(height: 30,)
 
     ],
   );
