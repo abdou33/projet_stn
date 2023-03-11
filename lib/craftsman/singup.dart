@@ -1,110 +1,168 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:projet_stn/craftsman/craftsman.dart';
+import 'package:projet_stn/craftsman/profile_page.dart/profile_page.dart';
+import '../square_tile.dart';
+import '../user.dart';
 
 class SignupPage extends StatelessWidget {
+  const SignupPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        brightness: Brightness.light,
-        backgroundColor: Colors.white,
-        leading:
-        IconButton( onPressed: (){
-          Navigator.pop(context);
-        },icon:Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-           scrollDirection: Axis.vertical,
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const Text ("Sign up", style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),),
-                        SizedBox(height: 20,),
-                        Text("Create an Account,Its free",style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.grey[700],
-                        ),),
-                        SizedBox(height: 30,)
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 40
-                      ),
-                      child: Column( 
-                        children: [
-                          makeInput(label: "First Name"),
-                          makeInput(label: "First Name"),
-                          makeInput(label: "First Name"),
-                          makeInput(label: "First Name"),
-                          makeInput(label: "Laste Name"),
-                          makeInput(label: "Email"),
-                          makeInput(label: "Password",obsureText: true),
-                          makeInput(label: "Confirm Pasword",obsureText: true)
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40),
-                      child: Container(
-                        padding: const EdgeInsets.only(top: 3,left: 3),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(40),
-                            border: const Border(
-                                bottom: BorderSide(color: Colors.black),
-                                top: BorderSide(color: Colors.black),
-                                right: BorderSide(color: Colors.black),
-                                left: BorderSide(color: Colors.black)
-                            )
-                        ),
-                        child: MaterialButton(
-                          minWidth: double.infinity,
-                          height:60,
-                          onPressed: (){},
-                          color: Colors.redAccent,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(60)
-                          ),
-                          child: const Text("Sign Up",style: TextStyle(
-                            fontWeight: FontWeight.w600,fontSize: 20,
+   var usernameController;
+   var passwordController;
+   return Scaffold(
+      backgroundColor: Colors.grey[300],
+      body: SingleChildScrollView(
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            const Icon( Icons.app_registration_outlined,size: 100, ),
+            Text(
+              'Welcome to our application',
+              style: TextStyle(
+                color: Colors.grey[700],
+                fontSize: 16,
+              ),
+            ),
+            const SizedBox(height: 25),
+            TextFormField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "First name",
+                prefixIcon: Icon(Icons.account_circle),
+                filled: true,
+                fillColor: Color.fromARGB(255, 215, 223, 215)
+              ),
+            ),
+             const SizedBox(height: 10),
+           TextFormField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Last name",
+                prefixIcon: Icon(Icons.account_circle),
+                filled: true,
+                fillColor: Color.fromARGB(255, 215, 223, 215)
+              ),
+            ),
+             const SizedBox(height: 10),
+           TextFormField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Last name",
+                prefixIcon: Icon(Icons.account_circle),
+                filled: true,
+                fillColor: Color.fromARGB(255, 215, 223, 215)
+              ),
+            ),
+             const SizedBox(height: 10),
+           TextFormField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Last name",
+                prefixIcon: Icon(Icons.account_circle),
+                filled: true,
+                fillColor: Color.fromARGB(255, 215, 223, 215)
+              ),
+            ),
+             const SizedBox(height: 10),
+           TextFormField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Last name",
+                prefixIcon: Icon(Icons.account_circle),
+                filled: true,
+                fillColor: Color.fromARGB(255, 215, 223, 215)
+              ),
+            ),
+             const SizedBox(height: 10),
+           TextFormField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Last name",
+                prefixIcon: Icon(Icons.account_circle),
+                filled: true,
+                fillColor: Color.fromARGB(255, 215, 223, 215)
+              ),
+            ),
+             const SizedBox(height: 10),
+           TextFormField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Last name",
+                prefixIcon: Icon(Icons.account_circle),
+                filled: true,
+                fillColor: Color.fromARGB(255, 215, 223, 215)
+              ),
+            ),
+             const SizedBox(height: 10),
+           TextFormField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Last name",
+                prefixIcon: Icon(Icons.account_circle),
+                filled: true,
+                fillColor: Color.fromARGB(255, 215, 223, 215)
+              ),
+            ),
+             const SizedBox(height: 10),
+           TextFormField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Last name",
+                prefixIcon: Icon(Icons.account_circle),
+                filled: true,
+                fillColor: Color.fromARGB(255, 215, 223, 215)
+              ),
+            ),
+             const SizedBox(height: 10),
+           TextFormField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Last name",
+                prefixIcon: Icon(Icons.account_circle),
+                filled: true,
+                fillColor: Color.fromARGB(255, 215, 223, 215)
+              ),
+            ),
 
-                          ),),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text("Already have an account? "),
-                        Text("Login",style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18
-                        ),),
-                      ],
-                    )
-                  ],
 
+            const SizedBox(height: 10),
+            
+
+            // sign in button
+            TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.orange),
+                        ),
+                        onPressed: (){
+                          Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return const Pageuser();
+                  }));
+                        },
+                        child: const Text("sing up", style: TextStyle(fontSize: 25),),
+                      ),
+             const SizedBox(height: 50),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                SizedBox(width: 4),
+                Text(
+                  'Already have account',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),
-          ),
+          ],
         ),
+      ),
       ),
     );
   }
@@ -120,7 +178,7 @@ Widget makeInput({label,obsureText = false}){
           fontWeight: FontWeight.w400,
           color: Colors.black87
       ),),),
-      SizedBox(height: 5,),
+      const SizedBox(height: 5,),
       TextField(
         obscureText: obsureText,
         decoration: const InputDecoration(
@@ -135,7 +193,7 @@ Widget makeInput({label,obsureText = false}){
           ),
         ),
       ),
-      SizedBox(height: 30,)
+      const SizedBox(height: 30,)
     ],
   );
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projet_stn/craftsman/profile_page.dart/appbar_widget.dart';
 import 'package:projet_stn/craftsman/profile_page.dart/user_data.dart';
-//import 'package:string_validator/string_validator.dart';
+import 'package:string_validator/string_validator.dart';
 //import 'package:flutter_user_profile/user/user_data.dart';
 //import 'package:flutter_user_profile/widgets/appbar_widget.dart';
 

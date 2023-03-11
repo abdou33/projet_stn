@@ -39,6 +39,8 @@ dependencies:
   shared_preferences: ^2.0.18
   image_picker: ^0.8.6+3
   path_provider: ^2.0.13
+  string_validator: ^1.0.0
+  firebase_core: ^2.7.0
 
 dev_dependencies:
   flutter_test:

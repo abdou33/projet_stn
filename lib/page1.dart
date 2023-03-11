@@ -11,7 +11,7 @@ class _PageOneState extends State<PageOne> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 105, 120, 17),
+      backgroundColor: Colors.grey[300],
       body: Container(
         width: double.infinity,
         height: 750,
@@ -25,7 +25,7 @@ class _PageOneState extends State<PageOne> {
                 padding: EdgeInsets.all(10),
                 child: Text(
                   "Hi , Welcome to the craftsmen app, I hope you find what you need.",
-                  style: TextStyle(fontSize: 30,color: Colors.white , fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 10, 10, 10) , fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -41,7 +41,7 @@ class _PageOneState extends State<PageOne> {
                   }));
                 },
                 icon: const Icon(
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 7, 107, 79),
                   Icons.arrow_circle_right,
                   size: 80,
                 ),
