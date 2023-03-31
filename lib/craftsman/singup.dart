@@ -18,9 +18,11 @@ class SignupPage extends StatelessWidget {
       body: SingleChildScrollView(
       child: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            Padding(padding:const EdgeInsets.all(20)),
+            const SizedBox(height: 60),
             const Icon( Icons.app_registration_outlined,size: 100, ),
+            const SizedBox(height: 25),
             Text(
               'Welcome to our application',
               style: TextStyle(
@@ -28,7 +30,8 @@ class SignupPage extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            const SizedBox(height: 25),
+            Padding(padding:const EdgeInsets.all(20)),
+            const SizedBox(height: 5),
             TextFormField(
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
@@ -52,8 +55,8 @@ class SignupPage extends StatelessWidget {
            TextFormField(
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: "Last name",
-                prefixIcon: Icon(Icons.account_circle),
+                hintText: "Email",
+                prefixIcon: Icon( Icons.mail_outlined, ),
                 filled: true,
                 fillColor: Color.fromARGB(255, 215, 223, 215)
               ),
@@ -62,8 +65,8 @@ class SignupPage extends StatelessWidget {
            TextFormField(
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: "Last name",
-                prefixIcon: Icon(Icons.account_circle),
+                hintText: "phone number",
+                prefixIcon: Icon( Icons.phone_outlined, ),
                 filled: true,
                 fillColor: Color.fromARGB(255, 215, 223, 215)
               ),
@@ -72,8 +75,8 @@ class SignupPage extends StatelessWidget {
            TextFormField(
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: "Last name",
-                prefixIcon: Icon(Icons.account_circle),
+                hintText: "Craft name",
+                prefixIcon: Icon( Icons.hardware, ),
                 filled: true,
                 fillColor: Color.fromARGB(255, 215, 223, 215)
               ),
@@ -82,55 +85,24 @@ class SignupPage extends StatelessWidget {
            TextFormField(
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: "Last name",
-                prefixIcon: Icon(Icons.account_circle),
+                hintText: "Location",
+                prefixIcon: Icon( Icons.location_on_outlined, ),
                 filled: true,
                 fillColor: Color.fromARGB(255, 215, 223, 215)
               ),
             ),
-             const SizedBox(height: 10),
-           TextFormField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Last name",
-                prefixIcon: Icon(Icons.account_circle),
-                filled: true,
-                fillColor: Color.fromARGB(255, 215, 223, 215)
-              ),
-            ),
-             const SizedBox(height: 10),
-           TextFormField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Last name",
-                prefixIcon: Icon(Icons.account_circle),
-                filled: true,
-                fillColor: Color.fromARGB(255, 215, 223, 215)
-              ),
-            ),
-             const SizedBox(height: 10),
-           TextFormField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Last name",
-                prefixIcon: Icon(Icons.account_circle),
-                filled: true,
-                fillColor: Color.fromARGB(255, 215, 223, 215)
-              ),
-            ),
-             const SizedBox(height: 10),
-           TextFormField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Last name",
-                prefixIcon: Icon(Icons.account_circle),
-                filled: true,
-                fillColor: Color.fromARGB(255, 215, 223, 215)
-              ),
-            ),
-
-
             const SizedBox(height: 10),
+            TextFormField(
+            obscureText: true,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Password",
+                prefixIcon: Icon( Icons.password_outlined, ),
+                filled: true,
+                fillColor: Color.fromARGB(255, 215, 223, 215)
+              ),
+            ),
+            const SizedBox(height: 30),
             
 
             // sign in button
@@ -141,24 +113,30 @@ class SignupPage extends StatelessWidget {
                         onPressed: (){
                           Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return const Pageuser();
+                    return  ProfilePage();
                   }));
                         },
-                        child: const Text("sing up", style: TextStyle(fontSize: 25),),
+                        child: const Text("Sing Up", style: TextStyle(fontSize: 25),),
                       ),
-             const SizedBox(height: 50),
-            Row(
+             const SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.all(20),
+              child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 SizedBox(width: 4),
                 Text(
-                  'Already have account',
+                  'If already have account',
                   style: TextStyle(
                     color: Colors.blue,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                InkWell(
+                  //onTap: (){},
+                  child:Text("Click Here", style: TextStyle(color: Color.fromARGB(255, 12, 12, 13)) ) ,)
               ],
+            ),
             ),
           ],
         ),

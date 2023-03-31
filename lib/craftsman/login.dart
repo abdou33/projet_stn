@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:projet_stn/craftsman/profile_page.dart/profile_page.dart';
 import '../square_tile.dart';
+import '../user.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -15,12 +17,12 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 50),
+              const SizedBox(height: 100),
 
               // logo
               const Icon(
@@ -28,7 +30,7 @@ class LoginPage extends StatelessWidget {
                 size: 100,
               ),
 
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
 
               // welcome back, you've been missed!
               Text(
@@ -46,7 +48,7 @@ class LoginPage extends StatelessWidget {
            TextFormField(
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: "Last name",
+                hintText: "User name",
                 prefixIcon: Icon(Icons.account_circle),
                 filled: true,
                 fillColor: Color.fromARGB(255, 215, 223, 215)
@@ -58,103 +60,48 @@ class LoginPage extends StatelessWidget {
               // password textfield
                const SizedBox(height: 10),
            TextFormField(
+            obscureText: true,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: "Last name",
-                prefixIcon: Icon(Icons.account_circle),
+                hintText: "Password",
+                prefixIcon: Icon( Icons.password_outlined, ),
                 filled: true,
                 fillColor: Color.fromARGB(255, 215, 223, 215)
               ),
             ),
-
-              const SizedBox(height: 10),
-
-              // forgot password?
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.grey[600]),
-                    ),
-                  ],
-                ),
-              ),
-
               const SizedBox(height: 25),
-
-              // sign in button
-              
-              
-              const SizedBox(height: 50),
-
-              // or continue with
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Divider(
-                        thickness: 0.5,
-                        color: Colors.grey[400],
+                TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.orange),
+                        ),
+                        onPressed: (){
+                          Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return ProfilePage();
+                  }));
+                        },
+                        child: const Text("Login", style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,),),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                      child: Text(
-                        'Or continue with',
-                        style: TextStyle(color: Colors.grey[700]),
-                      ),
-                    ),
-                    Expanded(
-                      child: Divider(
-                        thickness: 0.5,
-                        color: Colors.grey[400],
-                      ),
-                    ),
-                  ],
+                   Container(
+              padding: const EdgeInsets.all(20),
+              child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                SizedBox(width: 4),
+                Text(
+                  'If you do not have an account',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-
-              const SizedBox(height: 50),
-
-              // google + apple sign in buttons
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  // google button
-                  SquareTile(imagePath: 'lib/images/téléchargement.png'),
-
-                  SizedBox(width: 10),
-
-                  // apple button
-                  SquareTile(imagePath: 'lib/images/téléchargement (1).png')
-                ],
-              ),
-
-              const SizedBox(height: 50),
-
-              // not a member? register now
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Not a member?',
-                    style: TextStyle(color: Colors.grey[700]),
-                  ),
-                  const SizedBox(width: 4),
-                  const Text(
-                    'Register now',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              )
-            ],
+                InkWell(
+                  //onTap: (){},
+                  child:Text("Click Here", style: TextStyle(color: Color.fromARGB(255, 12, 12, 13)) ) ,)
+              ],
+            ),
+            ),
+               ],
           ),
         ),
       ),

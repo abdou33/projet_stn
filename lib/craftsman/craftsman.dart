@@ -43,6 +43,7 @@ class _PagecraftsmanState extends State<Pagecraftsman> {
                                   TextStyle(color: Colors.grey[700], fontSize: 15),
                             ),
                             Image.asset("images/hi.png"),
+                             const SizedBox(height: 30),
                             MaterialButton(
                               minWidth: double.infinity,
                               height: 60,
@@ -68,6 +69,7 @@ class _PagecraftsmanState extends State<Pagecraftsman> {
                             )
                           ],
                         ),
+                        const SizedBox(height: 25),
                         MaterialButton(
                           minWidth: double.infinity,
                           height: 60,
