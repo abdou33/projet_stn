@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projet_stn/craftsman/craftsman.dart';
-import 'package:projet_stn/craftsman/profile_page.dart/profile_page.dart';
+import '../pages/screens/welcome_screen.dart';
 import '../square_tile.dart';
 import '../user.dart';
 
@@ -113,7 +113,7 @@ class SignupPage extends StatelessWidget {
                         onPressed: (){
                           Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return  ProfilePage();
+                    return  WelcomeScreen ();
                   }));
                         },
                         child: const Text("Sing Up", style: TextStyle(fontSize: 25),),

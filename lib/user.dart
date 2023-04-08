@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'craftsman/profile_page.dart/profile_page.dart';
-
+import 'package:projet_stn/pages/screens/welcome_screen.dart';
 class Pageuser extends StatefulWidget {
    const Pageuser({Key? key}) : super(key: key);
   @override
@@ -73,7 +71,7 @@ class _PageuserState extends State<Pageuser> {
                         onPressed: (){
                           Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return ProfilePage();
+                    return  WelcomeScreen ();
                   }));
                         },
                         child: const Text("Login", style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,),),

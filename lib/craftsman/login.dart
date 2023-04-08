@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projet_stn/craftsman/profile_page.dart/profile_page.dart';
+import '../pages/screens/welcome_screen.dart';
 import '../square_tile.dart';
 import '../user.dart';
 
@@ -77,7 +77,7 @@ class LoginPage extends StatelessWidget {
                         onPressed: (){
                           Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return ProfilePage();
+                    return  WelcomeScreen ();
                   }));
                         },
                         child: const Text("Login", style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,),),

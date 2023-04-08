@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "111537130930",
+    "project_id": "craft-99ab6",
+    "storage_bucket": "craft-99ab6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111537130930:android:b7f8b26d6ab6c0159468ab",
+        "android_client_info": {
+          "package_name": "com.example.projet_stn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111537130930-ic4v1fmg35r1g9dliil8i726qi43e2gl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTk8KbFCDH9h5oVE9S3Vnt3NrKJWrKim4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111537130930-ic4v1fmg35r1g9dliil8i726qi43e2gl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
