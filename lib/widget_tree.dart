@@ -1,6 +1,5 @@
-import 'package:firebase_auth_project/auth.dart';
-import 'package:firebase_auth_project/pages/page1.dart';
-import 'package:firebase_auth_project/pages/login.dart';
+// ignore_for_file: no_logic_in_create_state
+
 import 'package:flutter/material.dart';
 import 'package:projet_stn/craftsman/login.dart';
 import 'package:projet_stn/page1.dart';
@@ -14,6 +13,7 @@ class WidgetTree extends StatefulWidget {
   
   @override
   State<StatefulWidget> createState() {
+    // ignore: todo
     // TODO: implement createState
     throw UnimplementedError();
   }
@@ -21,10 +21,10 @@ class WidgetTree extends StatefulWidget {
 class _WidgetTreeState extends State<WidgetTree>{
  @override
  Widget build(BuildContext context){
-  return StatefulBuilder(
+  return StreamBuilder(
     stream: Auth().authStateChange,
-    builder: (context, snapshot),{
-      if (snapshot.hashdat){
+    builder: (context, snapshot){
+      if (snapshot.hasData){
         return PageOne();
       }else{
         return LoginPage();
