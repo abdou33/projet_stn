@@ -15,7 +15,7 @@ class WidgetTree extends StatefulWidget {
   State<StatefulWidget> createState() {
     // ignore: todo
     // TODO: implement createState
-    throw UnimplementedError();
+    throw UnimplementedError(); 
   }
 }
 class _WidgetTreeState extends State<WidgetTree>{
@@ -25,7 +25,7 @@ class _WidgetTreeState extends State<WidgetTree>{
     stream: Auth().authStateChange,
     builder: (context, snapshot){
       if (snapshot.hasData){
-        return PageOne();
+        return const PageOne();
       }else{
         return LoginPage();
       }
