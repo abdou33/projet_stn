@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">111537130930-ic4v1fmg35r1g9dliil8i726qi43e2gl.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">111537130930</string>
+    <string name="google_api_key" translatable="false">AIzaSyDTk8KbFCDH9h5oVE9S3Vnt3NrKJWrKim4</string>
+    <string name="google_app_id" translatable="false">1:111537130930:android:b7f8b26d6ab6c0159468ab</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDTk8KbFCDH9h5oVE9S3Vnt3NrKJWrKim4</string>
+    <string name="google_storage_bucket" translatable="false">craft-99ab6.appspot.com</string>
+    <string name="project_id" translatable="false">craft-99ab6</string>
+</resources>

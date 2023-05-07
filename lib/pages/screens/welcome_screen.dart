@@ -1,5 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
 import 'package:flutter/material.dart';
-
 import '../my_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -22,11 +22,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: [
             Column(
               children: [
-                Container(
+                SizedBox(
                   height: 180,
                   child: Image.asset('images/logo.png'),
                 ),
-                Text(
+                const Text(
                   'MessageMe',
                   style: TextStyle(
                     fontSize: 40,
@@ -36,7 +36,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             MyButton(
               color: Colors.yellow[900]!,
               title: 'Sign in',

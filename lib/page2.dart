@@ -15,6 +15,7 @@ class _PageTowState extends State<PageTow> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey[300],
+          // ignore: avoid_unnecessary_containers
           body: Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -27,7 +28,7 @@ class _PageTowState extends State<PageTow> {
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                     SizedBox(
                       width: 200,
                       height: 50,

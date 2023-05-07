@@ -1,10 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:projet_stn/craftsman/craftsman.dart';
 import '../pages/screens/welcome_screen.dart';
-import '../square_tile.dart';
-import '../user.dart';
 
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key});
@@ -19,7 +15,7 @@ class SignupPage extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            Padding(padding:const EdgeInsets.all(20)),
+            const Padding(padding:EdgeInsets.all(20)),
             const SizedBox(height: 60),
             const Icon( Icons.app_registration_outlined,size: 100, ),
             const SizedBox(height: 25),
@@ -30,7 +26,7 @@ class SignupPage extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            Padding(padding:const EdgeInsets.all(20)),
+            const Padding(padding:EdgeInsets.all(20)),
             const SizedBox(height: 5),
             TextFormField(
               decoration: const InputDecoration(
@@ -113,7 +109,7 @@ class SignupPage extends StatelessWidget {
                         onPressed: (){
                           Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return  WelcomeScreen ();
+                    return  const WelcomeScreen ();
                   }));
                         },
                         child: const Text("Sing Up", style: TextStyle(fontSize: 25),),

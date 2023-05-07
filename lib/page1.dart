@@ -12,7 +12,7 @@ class _PageOneState extends State<PageOne> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: 750,
         child: Column(
@@ -33,7 +33,7 @@ class _PageOneState extends State<PageOne> {
             Container(
               margin: const EdgeInsets.only(top: 30),
               child: IconButton(
-                splashColor: Color.fromARGB(255, 28, 12, 205),
+                splashColor: const Color.fromARGB(255, 28, 12, 205),
                 onPressed: () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {

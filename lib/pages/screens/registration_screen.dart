@@ -19,15 +19,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
+            SizedBox(
               height: 180,
               child: Image.asset('images/logo.png'),
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             TextField(
               textAlign: TextAlign.center,
               onChanged: (value) {},
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Enter your Email',
                 contentPadding: EdgeInsets.symmetric(
                   vertical: 10,
@@ -58,11 +58,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             TextField(
               textAlign: TextAlign.center,
               onChanged: (value) {},
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Enter your password',
                 contentPadding: EdgeInsets.symmetric(
                   vertical: 10,
@@ -93,7 +93,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             MyButton(
               color: Colors.blue[800]!,
               title: 'register',

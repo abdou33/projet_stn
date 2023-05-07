@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import '../pages/screens/welcome_screen.dart';
-import '../square_tile.dart';
-import '../user.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -77,7 +75,7 @@ class LoginPage extends StatelessWidget {
                         onPressed: (){
                           Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return  WelcomeScreen ();
+                    return  const WelcomeScreen ();
                   }));
                         },
                         child: const Text("Login", style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,),),

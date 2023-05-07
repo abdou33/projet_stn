@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _ChatScreenState createState() => _ChatScreenState();
 }
 
@@ -18,8 +18,8 @@ class _ChatScreenState extends State<ChatScreen> {
         title: Row(
           children: [
             Image.asset('images/logo.png', height: 25),
-            SizedBox(width: 10),
-            Text('MessageMe')
+            const SizedBox(width: 10),
+            const Text('MessageMe')
           ],
         ),
         actions: [
@@ -27,7 +27,7 @@ class _ChatScreenState extends State<ChatScreen> {
             onPressed: () {
               // add here logout function
             },
-            icon: Icon(Icons.close),
+            icon: const Icon(Icons.close),
           )
         ],
       ),
@@ -38,7 +38,7 @@ class _ChatScreenState extends State<ChatScreen> {
           children: [
             Container(),
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 border: Border(
                   top: BorderSide(
                     color: Colors.orange,
@@ -52,7 +52,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   Expanded(
                     child: TextField(
                       onChanged: (value) {},
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         contentPadding: EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 20,
