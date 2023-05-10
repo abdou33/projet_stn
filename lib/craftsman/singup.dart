@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import '../pages/screens/chat_screen.dart';
 import '../pages/screens/welcome_screen.dart';
 
 class SignupPage extends StatelessWidget {
@@ -109,7 +110,7 @@ class SignupPage extends StatelessWidget {
                         onPressed: (){
                           Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return  const WelcomeScreen ();
+                    return  const WelcomeScreen  ();
                   }));
                         },
                         child: const Text("Sing Up", style: TextStyle(fontSize: 25),),

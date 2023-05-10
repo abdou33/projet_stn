@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../my_button.dart';
+import 'chat_screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           children: [
             SizedBox(
               height: 180,
-              child: Image.asset('images/logo.png'),
+              child: Image.asset('images/hi.png'),
             ),
             const SizedBox(height: 50),
             TextField(
@@ -97,7 +98,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             MyButton(
               color: Colors.blue[800]!,
               title: 'register',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return  const ChatScreen();
+                  }));
+              },
             )
           ],
         ),

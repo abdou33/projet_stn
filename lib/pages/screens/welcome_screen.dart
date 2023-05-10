@@ -24,16 +24,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               children: [
                 SizedBox(
                   height: 180,
-                  child: Image.asset('images/logo.png'),
+                  child: Image.asset('images/hi.png'),
                 ),
-                const Text(
+                /*const Text(
                   'MessageMe',
                   style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.w900,
                     color: Color(0xff2e386b),
                   ),
-                ),
+                ),*/
               ],
             ),
             const SizedBox(height: 30),

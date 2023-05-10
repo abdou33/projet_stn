@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
-  const MyButton({required this.color, required this.title, required this.onPressed});
+  const MyButton({super.key, required this.color, required this.title, required this.onPressed});
 
   final Color color;
   final String title;
