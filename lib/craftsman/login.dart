@@ -1,16 +1,68 @@
 import 'package:flutter/material.dart';
-import '../pages/screens/chat_screen.dart';
-import '../pages/screens/welcome_screen.dart';
+import 'package:projet_stn/Dashboard.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:projet_stn/auth.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
-  // text editing controllers
-  final usernameController = TextEditingController();
-  final passwordController = TextEditingController();
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
 
-  // sign user in method
-  void signUserIn() {}
+class _LoginPageState extends State<LoginPage> {
+  String? errormessage = '';
+  bool isLogin = true;
+  // ignore: unused_field
+  final TextEditingController _controllerEmail = TextEditingController();
+  // ignore: unused_field
+  final TextEditingController _controllerPassword = TextEditingController();
+
+  Future<void> signInWithEmailAndPassword() async {
+    try {
+      await Auth().signInWithEmailAndPassword(
+          email: _controllerEmail.text, password: _controllerPassword.text);
+    } on FirebaseException catch (e) {
+      setState(() {
+        errormessage = e.message;
+      });
+    }
+  }
+
+  // ignore: unused_element
+  Widget _title() {
+    return const Text('Firbase Auth');
+  }
+
+  // ignore: unused_element
+  Widget _entryField(
+    String title,
+    TextEditingController controller,
+  ) {
+    return TextField(
+      controller: controller,
+      decoration: InputDecoration(
+        labelText: title,
+      ),
+    );
+  }
+
+  // ignore: unused_element
+  Widget _errorMessage() {
+    return Text(errormessage == '' ? '' : 'Humm ? $errormessage');
+  }
+
+  // ignore: unused_element
+  Widget _submitButton() {
+    return ElevatedButton(
+      onPressed: () {
+        setState(() {
+          isLogin = !isLogin;
+        });
+      },
+      child: Text(isLogin ? 'Register instead' : 'Login instead.'),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,64 +95,73 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 25),
 
               // username textfield
-           const SizedBox(height: 10),
-           TextFormField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "User name",
-                prefixIcon: Icon(Icons.account_circle),
-                filled: true,
-                fillColor: Color.fromARGB(255, 215, 223, 215)
+              const SizedBox(height: 10),
+              TextFormField(
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Email",
+                    prefixIcon: Icon(Icons.account_circle),
+                    filled: true,
+                    fillColor: Color.fromARGB(255, 215, 223, 215)),
               ),
-            ),
 
               const SizedBox(height: 10),
 
               // password textfield
-               const SizedBox(height: 10),
-           TextFormField(
-            obscureText: true,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Password",
-                prefixIcon: Icon( Icons.password_outlined, ),
-                filled: true,
-                fillColor: Color.fromARGB(255, 215, 223, 215)
+              const SizedBox(height: 10),
+              TextFormField(
+                obscureText: true,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Password",
+                    prefixIcon: Icon(
+                      Icons.password_outlined,
+                    ),
+                    filled: true,
+                    fillColor: Color.fromARGB(255, 215, 223, 215)),
               ),
-            ),
               const SizedBox(height: 25),
-                TextButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.orange),
-                        ),
-                        onPressed: (){
-                          Navigator.of(context)
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.orange),
+                ),
+                onPressed: () {
+                  Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return  const ChatScreen  ();
+                    return Dashboard();
                   }));
-                        },
-                        child: const Text("Login", style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,),),
-                      ),
-                   Container(
-              padding: const EdgeInsets.all(20),
-              child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                SizedBox(width: 4),
-                Text(
-                  'If you do not have an account',
+                },
+                child: const Text(
+                  "Login",
                   style: TextStyle(
-                    color: Colors.blue,
+                    fontSize: 25,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                InkWell(
-                  //onTap: (){},
-                  child:Text("Click Here", style: TextStyle(color: Color.fromARGB(255, 12, 12, 13)) ) ,)
-              ],
-            ),
-            ),
-               ],
+              ),
+              Container(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    SizedBox(width: 4),
+                    Text(
+                      'If you do not have an account',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    InkWell(
+                      //onTap: (){},
+                      child: Text("Click Here",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 12, 12, 13))),
+                    )
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
