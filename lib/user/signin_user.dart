@@ -1,18 +1,37 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../my_button.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../auth.dart';
+import '../widgets/my_button.dart';
+import 'Principale.dart';
 import 'chat_screen.dart';
 
-
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+class Signinuser extends StatefulWidget {
+  const Signinuser({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
-  _SignInScreenState createState() => _SignInScreenState();
+  _SigninuserState createState() => _SigninuserState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SigninuserState extends State<Signinuser> {
+  String? errormessage = '';
+  // ignore: unused_field
+  final TextEditingController _controllerEmail = TextEditingController();
+  // ignore: unused_field
+  final TextEditingController _controllerPassword = TextEditingController();
+  Future<void> signInWithEmailAndPassword() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    try {
+      await Auth().signInWithEmailAndPassword(
+          email: _controllerEmail.text, password: _controllerPassword.text);
+          await prefs.setString('usertype', 'user');
+    } on FirebaseException catch (e) {
+      setState(() {
+        errormessage = e.message;
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +49,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             const SizedBox(height: 50),
             TextField(
+              controller: _controllerEmail,
               textAlign: TextAlign.center,
               onChanged: (value) {},
               decoration: const InputDecoration(
@@ -65,6 +85,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             const SizedBox(height: 8),
             TextField(
+              controller: _controllerPassword,
               textAlign: TextAlign.center,
               onChanged: (value) {},
               decoration: const InputDecoration(
@@ -103,9 +124,10 @@ class _SignInScreenState extends State<SignInScreen> {
               color: Colors.yellow[900]!,
               title: 'Sign in',
               onPressed: () {
+               signInWithEmailAndPassword();
                  Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return  const ChatScreen();
+                    return  Userprincipal();
                   }));
               },
             )

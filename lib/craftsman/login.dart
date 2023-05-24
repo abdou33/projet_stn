@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:projet_stn/Dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:projet_stn/auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+import 'principal.dart';
+
+class Logincraftman extends StatefulWidget {
+  const Logincraftman({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<Logincraftman> createState() => _LogincraftmanState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LogincraftmanState extends State<Logincraftman> {
   String? errormessage = '';
   bool isLogin = true;
   // ignore: unused_field
@@ -19,9 +21,11 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _controllerPassword = TextEditingController();
 
   Future<void> signInWithEmailAndPassword() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     try {
       await Auth().signInWithEmailAndPassword(
           email: _controllerEmail.text, password: _controllerPassword.text);
+          await prefs.setString('usertype', 'craftman');
     } on FirebaseException catch (e) {
       setState(() {
         errormessage = e.message;
@@ -126,9 +130,10 @@ class _LoginPageState extends State<LoginPage> {
                   backgroundColor: MaterialStateProperty.all(Colors.orange),
                 ),
                 onPressed: () {
+                  signInWithEmailAndPassword();
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return Dashboard();
+                    return Craftmanprincipal();
                   }));
                 },
                 child: const Text(

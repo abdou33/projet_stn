@@ -1,32 +1,29 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../auth.dart';
-import '../pages/screens/chat_screen.dart';
-import '../pages/screens/welcome_screen.dart';
+import '../welcome_screen.dart';
 
-class SignupPage extends StatelessWidget {
-  const SignupPage({super.key});
+class Signupuser extends StatelessWidget {
+  const Signupuser({super.key});
 
   @override
   Widget build(BuildContext context) {
     Auth auth = Auth();
-    TextEditingController usernameController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
     TextEditingController firstnameController = TextEditingController();
     TextEditingController lastnameController = TextEditingController();
     TextEditingController emailController = TextEditingController();
     TextEditingController phoneController = TextEditingController();
-    TextEditingController craftnameController = TextEditingController();
-    TextEditingController locationController = TextEditingController();
+    
 
     String uid = "";
-    Future<void> saveUserData(
-        String userId) async {
+    Future<void> saveUserData(String userId) async {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
       final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-      final CollectionReference usersCollection =
-          firestore.collection('craftman');
+      final CollectionReference usersCollection = firestore.collection('user');
       final DocumentReference userDocument = usersCollection.doc(userId);
 
       final Map<String, dynamic> userData = {
@@ -34,13 +31,14 @@ class SignupPage extends StatelessWidget {
         'lastname': lastnameController.text,
         'email': emailController.text,
         'phonenumber': phoneController.text,
-        'craftname': craftnameController.text,
-        'location': locationController.text,
+        'uid': userId,
       };
+      print(userData);
 
       try {
         await userDocument.set(userData);
         print('User data saved successfully!');
+        await prefs.setString('usertype', 'user');
       } catch (error) {
         print('Error saving user data: $error');
       }
@@ -113,30 +111,6 @@ class SignupPage extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               TextFormField(
-                controller: craftnameController,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: "Craft name",
-                    prefixIcon: Icon(
-                      Icons.hardware,
-                    ),
-                    filled: true,
-                    fillColor: Color.fromARGB(255, 215, 223, 215)),
-              ),
-              const SizedBox(height: 10),
-              TextFormField(
-                controller: locationController,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: "Location",
-                    prefixIcon: Icon(
-                      Icons.location_on_outlined,
-                    ),
-                    filled: true,
-                    fillColor: Color.fromARGB(255, 215, 223, 215)),
-              ),
-              const SizedBox(height: 10),
-              TextFormField(
                 controller: passwordController,
                 obscureText: true,
                 decoration: const InputDecoration(
@@ -158,7 +132,7 @@ class SignupPage extends StatelessWidget {
                 onPressed: () {
                   FirebaseAuth.instance
                       .createUserWithEmailAndPassword(
-                          email: usernameController.text,
+                          email: emailController.text,
                           password: passwordController.text)
                       .then((UserCredential userCredential) {
                     uid = userCredential.user!.uid;

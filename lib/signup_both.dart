@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:projet_stn/user.dart';
-import 'package:projet_stn/craftsman/craftsman.dart';
+import 'package:projet_stn/user/signin_user.dart';
+
+import 'craftsman/singup_craftman.dart';
+import 'user/signup_user.dart';
 
 class PageTow extends StatefulWidget {
    const PageTow({Key? key}) : super(key: key);
@@ -39,7 +41,7 @@ class _PageTowState extends State<PageTow> {
                         onPressed: (){
                           Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return const Pageuser();
+                    return const Signupuser();
                   }));
                         },
                         child: const Text("user", style: TextStyle(fontSize: 25),),
@@ -56,7 +58,7 @@ class _PageTowState extends State<PageTow> {
                         onPressed: (){
                           Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return  const Pagecraftsman();
+                    return  const Signupcraftman();
                   }));
                         },
                         child: const Text("craftsman", style: TextStyle(fontSize: 25),),

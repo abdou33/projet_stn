@@ -1,6 +1,9 @@
 // ignore_for_file: library_private_types_in_public_api
 import 'package:flutter/material.dart';
-import '../my_button.dart';
+
+import 'signin_both.dart';
+import 'signup_both.dart';
+import 'widgets/my_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -40,12 +43,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             MyButton(
               color: Colors.yellow[900]!,
               title: 'Sign in',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Signinboth()));
+              },
             ),
             MyButton(
               color: Colors.blue[800]!,
               title: 'register',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => PageTow()));
+              },
             )
           ],
         ),

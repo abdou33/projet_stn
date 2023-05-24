@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
-  const MyButton({super.key, required this.color, required this.title, required this.onPressed});
+  const MyButton(
+      {super.key,
+      required this.color,
+      required this.title,
+      required this.onPressed});
 
   final Color color;
   final String title;
@@ -16,7 +20,9 @@ class MyButton extends StatelessWidget {
         color: color,
         borderRadius: BorderRadius.circular(10),
         child: MaterialButton(
-          onPressed: () => onPressed,
+          onPressed: () {
+            onPressed.call();
+          },
           minWidth: 200,
           height: 42,
           child: Text(
