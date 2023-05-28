@@ -153,9 +153,9 @@ class Signupuser extends StatelessWidget {
               const SizedBox(height: 10),
               Container(
                 padding: const EdgeInsets.all(20),
-                child: Row(
+                child:const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     SizedBox(width: 4),
                     Text(
                       'If already have account',

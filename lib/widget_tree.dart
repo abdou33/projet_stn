@@ -15,11 +15,6 @@ class WidgetTree extends StatefulWidget {
 class _WidgetTreeState extends State<WidgetTree> {
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return StreamBuilder(
         stream: Auth().authStateChange,
@@ -27,16 +22,16 @@ class _WidgetTreeState extends State<WidgetTree> {
           if (snapshot.hasData) {
             if (widget.usertype != "") {
               if (widget.usertype == "user") {
-                return Userprincipal();
+                return const Userprincipal();
               } else if (widget.usertype == "craftman") {
-                return Craftmanprincipal();
+                return const Craftmanprincipal();
               }
-              return CircularProgressIndicator();
+              return const CircularProgressIndicator();
             }
           } else {
-            return WelcomeScreen();
+            return const WelcomeScreen();
           }
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         });
   }
 }

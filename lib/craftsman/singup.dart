@@ -1,16 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../auth.dart';
-import '../welcome_screen.dart';
+import '../pages/screens/chat_screen.dart';
+import '../pages/screens/welcome_screen.dart';
 
-class Signupcraftman extends StatelessWidget {
-  const Signupcraftman({super.key});
+class SignupPage extends StatelessWidget {
+  const SignupPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     Auth auth = Auth();
+    TextEditingController usernameController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
     TextEditingController firstnameController = TextEditingController();
     TextEditingController lastnameController = TextEditingController();
@@ -20,8 +21,8 @@ class Signupcraftman extends StatelessWidget {
     TextEditingController locationController = TextEditingController();
 
     String uid = "";
-    Future<void> saveUserData(String userId) async {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
+    Future<void> saveUserData(
+        String userId) async {
       final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
       final CollectionReference usersCollection =
@@ -35,13 +36,11 @@ class Signupcraftman extends StatelessWidget {
         'phonenumber': phoneController.text,
         'craftname': craftnameController.text,
         'location': locationController.text,
-        'uid': userId,
       };
 
       try {
         await userDocument.set(userData);
         print('User data saved successfully!');
-        await prefs.setString('usertype', 'user');
       } catch (error) {
         print('Error saving user data: $error');
       }
@@ -159,7 +158,7 @@ class Signupcraftman extends StatelessWidget {
                 onPressed: () {
                   FirebaseAuth.instance
                       .createUserWithEmailAndPassword(
-                          email: emailController.text,
+                          email: usernameController.text,
                           password: passwordController.text)
                       .then((UserCredential userCredential) {
                     uid = userCredential.user!.uid;
@@ -180,9 +179,9 @@ class Signupcraftman extends StatelessWidget {
               const SizedBox(height: 10),
               Container(
                 padding: const EdgeInsets.all(20),
-                child:const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children:[
+                  children: const [
                     SizedBox(width: 4),
                     Text(
                       'If already have account',

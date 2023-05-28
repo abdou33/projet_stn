@@ -7,11 +7,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -24,8 +24,12 @@ class _MyAppState extends State<MyApp> {
   String usertype = "";
 
   @override
-  Future<void> initState() async {
-    // Obtain shared preferences.
+  void initState(){
+    super.initState();
+    getusertype();
+  }
+
+  getusertype() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     String? action = prefs.getString('usertype');
     if (action != null) {
@@ -38,9 +42,7 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _isready = true;
     });
-    super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -49,7 +51,7 @@ class _MyAppState extends State<MyApp> {
           ? WidgetTree(
               usertype: usertype,
             )
-          : CircularProgressIndicator()
+          : Center(child: const CircularProgressIndicator())
     );
   }
 }

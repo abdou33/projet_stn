@@ -64,10 +64,10 @@ class _ChatScreenState extends State<ChatScreen> {
                                     data["time"])
                                 .toString());
                       }
-                      Future.delayed(Duration(milliseconds: 100), () {
+                      Future.delayed(const Duration(milliseconds: 100), () {
                         _myController.animateTo(
                             _myController.position.maxScrollExtent,
-                            duration: Duration(milliseconds: 50),
+                            duration: const Duration(milliseconds: 50),
                             curve: Curves.ease);
                       });
                       return messagetile(
@@ -100,59 +100,57 @@ class _ChatScreenState extends State<ChatScreen> {
         backgroundColor: Colors.yellow[900],
         title: Text("${widget.hisname}"),
       ),
-      body: Container(
-        child: Stack(
-          children: [
-            Padding(
-              padding:
-                  const EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 70),
-              child: chatmessagelist(),
-            ),
-            Container(
-              alignment: Alignment.bottomCenter,
-              decoration: const BoxDecoration(
-                border: Border(
-                  top: BorderSide(
-                    color: Colors.orange,
-                    width: 2,
-                  ),
+      body: Stack(
+        children: [
+          Padding(
+            padding:
+                const EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 70),
+            child: chatmessagelist(),
+          ),
+          Container(
+            alignment: Alignment.bottomCenter,
+            decoration: const BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  color: Colors.orange,
+                  width: 2,
                 ),
               ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: msgeditingcontroller,
-                      onChanged: (value) {},
-                      decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 20,
-                        ),
-                        hintText: 'Write your message here...',
-                        border: InputBorder.none,
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: msgeditingcontroller,
+                    onChanged: (value) {},
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 20,
                       ),
+                      hintText: 'Write your message here...',
+                      border: InputBorder.none,
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      sendmessage();
-                    },
-                    child: Text(
-                      'send',
-                      style: TextStyle(
-                        color: Colors.blue[800],
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    sendmessage();
+                  },
+                  child: Text(
+                    'send',
+                    style: TextStyle(
+                      color: Colors.blue[800],
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -174,22 +172,22 @@ class messagetile extends StatelessWidget {
         children: [
           Container(
             margin:
-                sendby ? EdgeInsets.only(left: 30) : EdgeInsets.only(right: 30),
-            padding: EdgeInsets.only(top: 17, bottom: 17, left: 20, right: 20),
+                sendby ? const EdgeInsets.only(left: 30) : const EdgeInsets.only(right: 30),
+            padding: const EdgeInsets.only(top: 17, bottom: 17, left: 20, right: 20),
             decoration: BoxDecoration(
                 borderRadius: sendby
-                    ? BorderRadius.only(
+                    ? const BorderRadius.only(
                         topLeft: Radius.circular(23),
                         topRight: Radius.circular(23),
                         bottomLeft: Radius.circular(23))
-                    : BorderRadius.only(
+                    : const BorderRadius.only(
                         topLeft: Radius.circular(23),
                         topRight: Radius.circular(23),
                         bottomRight: Radius.circular(23)),
                 color: Colors.orange),
             child: Text(message,
                 textAlign: TextAlign.start,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                     fontFamily: 'OverpassRegular',
@@ -200,7 +198,7 @@ class messagetile extends StatelessWidget {
                   .format(DateTime.fromMillisecondsSinceEpoch(time))
                   .toString(),
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.black,
                   fontSize: 11,
                   fontWeight: FontWeight.w300)),

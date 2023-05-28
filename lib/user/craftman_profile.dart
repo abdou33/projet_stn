@@ -72,12 +72,12 @@ class _CraftmanProfileState extends State<CraftmanProfile> {
       ),
       body: is_ready
           ? Padding(
-              padding: EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+              padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
               child: Column(
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.person),
+                      const Icon(Icons.person),
                       Text(widget.craftman.firstname +
                           " " +
                           widget.craftman.lastname),
@@ -85,33 +85,33 @@ class _CraftmanProfileState extends State<CraftmanProfile> {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.work),
+                      const Icon(Icons.work),
                       Text(widget.craftman.craftname),
                     ],
                   ),
                   Row(
                     children: [
-                      Icon(Icons.location_pin),
+                      const Icon(Icons.location_pin),
                       Text(widget.craftman.location),
                     ],
                   ),
                   Row(
                     children: [
-                      Icon(Icons.phone),
+                      const Icon(Icons.phone),
                       Text(widget.craftman.phonenumber),
                     ],
                   ),
                   Row(
                     children: [
-                      Icon(Icons.email),
+                      const Icon(Icons.email),
                       Text(widget.craftman.email),
                     ],
                   ),
                   ElevatedButton(
-                    style: ButtonStyle(
+                    style: const ButtonStyle(
                       backgroundColor: MaterialStatePropertyAll(Colors.orange),
                     ),
-                    child: Row(
+                    child:const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("message "),
@@ -125,7 +125,7 @@ class _CraftmanProfileState extends State<CraftmanProfile> {
                 ],
               ),
             )
-          : Center(child: CircularProgressIndicator()),
+          :const Center(child: CircularProgressIndicator()),
     );
   }
 }

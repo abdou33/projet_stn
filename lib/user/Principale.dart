@@ -32,7 +32,9 @@ class _UserprincipalState extends State<Userprincipal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer:const Drawer(
+        
+      ),
       resizeToAvoidBottomInset: true,
       appBar: AppBar(),
       body: Container(
@@ -42,11 +44,11 @@ class _UserprincipalState extends State<Userprincipal> {
                 builder: (BuildContext context,
                     AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.hasError) {
-                    return Text('Something went wrong');
+                    return const Text('Something went wrong');
                   }
 
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: Text("Loading"));
+                    return const Center(child: Text("Loading"));
                   }
 
                   return Padding(
@@ -79,10 +81,10 @@ class _UserprincipalState extends State<Userprincipal> {
                               children: [
                                 Text(
                                     "${data['craftname']}, ${data['location']}"),
-                                Icon(Icons.location_history_rounded),
+                                const Icon(Icons.location_history_rounded),
                               ],
                             ),
-                            trailing: Icon(Icons.person_sharp),
+                            trailing: const Icon(Icons.person_sharp),
                           );
                         }).toList(),
                       ),
@@ -90,7 +92,7 @@ class _UserprincipalState extends State<Userprincipal> {
                   );
                 },
               )
-            : Center(
+            : const Center(
                 child: CircularProgressIndicator(),
               ),
       ),

@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../helpers/messages.dart';
 import '../user/chat_screen.dart';
@@ -75,10 +74,10 @@ class _CraftmanprincipalState extends State<Craftmanprincipal> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-        drawer: Drawer(),
+        drawer:const Drawer(),
         appBar: AppBar(
           backgroundColor: Colors.orange,
-          title: Text("home page"),
+          title:const Text("home page"),
         ),
         body: chatroomlist(),
       ),
@@ -110,8 +109,8 @@ class chatroomstile extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
         child: Container(
-          color: Color.fromARGB(255, 215, 215, 215),
-          padding: EdgeInsets.symmetric(horizontal: 18, vertical: 25),
+          color:const Color.fromARGB(255, 215, 215, 215),
+          padding:const EdgeInsets.symmetric(horizontal: 18, vertical: 25),
           child: Row(
             children: [
               Container(
@@ -125,7 +124,7 @@ class chatroomstile extends StatelessWidget {
                   "${username.substring(0, 1).toUpperCase()}",
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Text(username),
