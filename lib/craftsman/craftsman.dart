@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: unused_import
 import 'login.dart';
 import 'singup.dart';
 
@@ -50,7 +51,7 @@ class _PagecraftsmanState extends State<Pagecraftsman> {
                               onPressed: () {
                                 Navigator.of(context)
                                     .push(MaterialPageRoute(builder: (context) {
-                                  return LoginPage();
+                                  return Logincraftman();
                                 }));
                               },
                               color: Colors.indigoAccent[400],
