@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import '../chat_screen.dart';
 import '../classes/craftman.dart';
 import '../helpers/messages.dart';
-import 'chat_screen.dart';
 
 class CraftmanProfile extends StatefulWidget {
   final Craftman craftman;
@@ -111,7 +111,7 @@ class _CraftmanProfileState extends State<CraftmanProfile> {
                     style: const ButtonStyle(
                       backgroundColor: MaterialStatePropertyAll(Colors.orange),
                     ),
-                    child:const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("message "),

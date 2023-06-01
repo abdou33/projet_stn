@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../auth.dart';
 import '../widgets/my_button.dart';
@@ -15,22 +16,21 @@ class Signinuser extends StatefulWidget {
 
 class _SigninuserState extends State<Signinuser> {
   String? errormessage = '';
-  // ignore: unused_field
   final TextEditingController _controllerEmail = TextEditingController();
-  // ignore: unused_field
   final TextEditingController _controllerPassword = TextEditingController();
   Future<void> signInWithEmailAndPassword() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     try {
       await Auth().signInWithEmailAndPassword(
           email: _controllerEmail.text, password: _controllerPassword.text);
-          await prefs.setString('usertype', 'user');
+      await prefs.setString('usertype', 'user');
     } on FirebaseException catch (e) {
-      setState(() {
-        errormessage = e.message;
-      });
+          Fluttertoast.showToast(
+            msg: "${e.message}",
+          );
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,11 +123,11 @@ class _SigninuserState extends State<Signinuser> {
               color: Colors.yellow[900]!,
               title: 'Sign in',
               onPressed: () {
-               signInWithEmailAndPassword();
-                 Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return const  Userprincipal();
-                  }));
+                signInWithEmailAndPassword();
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return const Userprincipal();
+                }));
               },
             )
           ],

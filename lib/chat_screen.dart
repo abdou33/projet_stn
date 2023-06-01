@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import '../helpers/messages.dart';
+import 'helpers/messages.dart';
 
 class ChatScreen extends StatefulWidget {
   final String hisname;

@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../auth.dart';
 import '../welcome_screen.dart';
+import 'principal.dart';
 
 class Signupcraftman extends StatelessWidget {
   const Signupcraftman({super.key});
@@ -43,6 +45,9 @@ class Signupcraftman extends StatelessWidget {
         print('User data saved successfully!');
         await prefs.setString('usertype', 'user');
       } catch (error) {
+        Fluttertoast.showToast(
+            msg: "${error}",
+          );
         print('Error saving user data: $error');
       }
     }
@@ -169,7 +174,7 @@ class Signupcraftman extends StatelessWidget {
                   });
                   Navigator.of(context)
                       .pushReplacement(MaterialPageRoute(builder: (context) {
-                    return const WelcomeScreen();
+                    return const Craftmanprincipal();
                   }));
                 },
                 child: const Text(
@@ -180,7 +185,7 @@ class Signupcraftman extends StatelessWidget {
               const SizedBox(height: 10),
               Container(
                 padding: const EdgeInsets.all(20),
-                child:const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:[
                     SizedBox(width: 4),

@@ -32,9 +32,7 @@ class _UserprincipalState extends State<Userprincipal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer:const Drawer(
-        
-      ),
+      drawer: const Drawer(),
       resizeToAvoidBottomInset: true,
       appBar: AppBar(),
       body: Container(
@@ -73,7 +71,16 @@ class _UserprincipalState extends State<Userprincipal> {
                               Navigator.push(
                                   (context),
                                   MaterialPageRoute(
-                                      builder: (context) => CraftmanProfile(craftman: Craftman(data['craftname'], data['firstname'], data['lastname'], data['email'], data['location'], data['phonenumber'], data['uid']), )));
+                                      builder: (context) => CraftmanProfile(
+                                            craftman: Craftman(
+                                                data['craftname'],
+                                                data['firstname'],
+                                                data['lastname'],
+                                                data['email'],
+                                                data['location'],
+                                                data['phonenumber'],
+                                                data['uid']),
+                                          )));
                             },
                             title: Text(
                                 "${data['firstname']} ${data['lastname']}"),

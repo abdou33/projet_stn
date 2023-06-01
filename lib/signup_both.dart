@@ -25,7 +25,7 @@ class _PageTowState extends State<PageTow> {
                 Container(
                   margin:  const EdgeInsets.only(top: 50),
                   child:  const Text(
-                    "Sign up as a:",
+                    "Register as:",
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
                 ),

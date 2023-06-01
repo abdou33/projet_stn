@@ -2,8 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../chat_screen.dart';
 import '../helpers/messages.dart';
-import '../user/chat_screen.dart';
+import 'profile.dart';
 
 class Craftmanprincipal extends StatefulWidget {
   const Craftmanprincipal({Key? key}) : super(key: key);
@@ -19,7 +20,6 @@ class _CraftmanprincipalState extends State<Craftmanprincipal> {
 
   String username2 = "";
   databasemethods databasemethodes = new databasemethods();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   Stream<QuerySnapshot>? chatroomsstream;
   bool is_ready = false;
   String uid = "";
@@ -35,7 +35,7 @@ class _CraftmanprincipalState extends State<Craftmanprincipal> {
                         snapshot.data!.docs.map((DocumentSnapshot document) {
                       Map<String, dynamic> data =
                           document.data()! as Map<String, dynamic>;
-                      print("b=====================" + data["chatroomID"]);
+                      // print("b=====================" + data["chatroomID"]);
                       return chatroomstile(
                         data["chatroomID"]
                             .toString()
@@ -58,7 +58,7 @@ class _CraftmanprincipalState extends State<Craftmanprincipal> {
   }
 
   getuserinfo() async {
-    uid = _auth.currentUser!.uid;
+    uid = FirebaseAuth.instance.currentUser!.uid;
     setState(() {
       is_ready = true;
     });
@@ -74,12 +74,26 @@ class _CraftmanprincipalState extends State<Craftmanprincipal> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-        drawer:const Drawer(),
+        drawer: const Drawer(),
         appBar: AppBar(
           backgroundColor: Colors.orange,
-          title:const Text("home page"),
+          title: const Text("home page"),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.person),
+              onPressed: () {
+                // print(FirebaseAuth.instance.currentUser.toString());
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CraftmanProfile(uid: FirebaseAuth.instance.currentUser!.uid)),
+                );
+              },
+            ),
+          ],
         ),
-        body: chatroomlist(),
+        body: is_ready
+            ? chatroomlist()
+            : Center(child: CircularProgressIndicator()),
       ),
     );
   }
@@ -99,18 +113,18 @@ class chatroomstile extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => ChatScreen(
-                  hisid: username,
-                  hisname: username,
-                  myid: uid,
-                  chatroomid: chatroomid,
-                ),
+                hisid: username,
+                hisname: username,
+                myid: uid,
+                chatroomid: chatroomid,
+              ),
             ));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
         child: Container(
-          color:const Color.fromARGB(255, 215, 215, 215),
-          padding:const EdgeInsets.symmetric(horizontal: 18, vertical: 25),
+          color: const Color.fromARGB(255, 215, 215, 215),
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 25),
           child: Row(
             children: [
               Container(

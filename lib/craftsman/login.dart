@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:projet_stn/auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -25,8 +26,11 @@ class _LogincraftmanState extends State<Logincraftman> {
     try {
       await Auth().signInWithEmailAndPassword(
           email: _controllerEmail.text, password: _controllerPassword.text);
-          await prefs.setString('usertype', 'craftman');
+      await prefs.setString('usertype', 'craftman');
     } on FirebaseException catch (e) {
+      Fluttertoast.showToast(
+        msg: "${e.message}",
+      );
       setState(() {
         errormessage = e.message;
       });
@@ -101,6 +105,7 @@ class _LogincraftmanState extends State<Logincraftman> {
               // username textfield
               const SizedBox(height: 10),
               TextFormField(
+                controller: _controllerEmail,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "Email",
@@ -114,6 +119,7 @@ class _LogincraftmanState extends State<Logincraftman> {
               // password textfield
               const SizedBox(height: 10),
               TextFormField(
+                controller: _controllerPassword,
                 obscureText: true,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),

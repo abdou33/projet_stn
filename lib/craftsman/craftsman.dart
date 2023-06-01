@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'login.dart';
 import 'singup.dart';
+import 'singup_craftman.dart';
 
 class Pagecraftsman extends StatefulWidget {
   const Pagecraftsman({Key? key}) : super(key: key);
@@ -77,7 +78,7 @@ class _PagecraftsmanState extends State<Pagecraftsman> {
                           onPressed: () {
                             Navigator.of(context)
                                 .push(MaterialPageRoute(builder: (context) {
-                              return const SignupPage();
+                              return const Signupcraftman();
                             }));
                           },
                           color: Colors.redAccent,
